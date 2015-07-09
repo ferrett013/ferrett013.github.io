@@ -1,50 +1,127 @@
 <!DOCTYPE html>
-<html>
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <link rel="stylesheet" href="//rawgit.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.css">
+   <script src="//rawgithub.com/lvoogdt/Leaflet.awesome-markers/2.0/develop/dist/leaflet.awesome-markers.js"></script>
+
+
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css">
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css">
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster-src.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+
+   <link rel="stylesheet" href="//birdage.github.io/Leaflet.awesome-markers/dist/leaflet.awesome.rotate.css">
+
+   
+   
+   
+   
+
+   <style>
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+      }
+
+   </style>
+</head>
+
 <body>
-<h1>Garrett Fardon</h1>
 
-<h2>Technical Skills</h2>
-<ul>
-<li>Microsoft Suite (Access, Excel and Word)</li>
-<li>Google Apps Suite (including Fusion Tables and Google Apps Script)</li>
-<li>Votebuilder</li>
-<li>Wordpress</li>
-<li>Photoshop</li>
-<li>InDesign</li>
-<li>PHP</li>
-<li>SQL (MySQL, PostgreSQL, Redshift and PostGIS variants)</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>Quantum GIS</li>
-<li>Leaflet.js</li>
-</ul>
+   <div class="folium-map" id="folium_cc0d57bfa9154ee7ba71e78915828a1e" style="width: 960px; height: 500px"></div>
 
-Experience
-Colorado Democratic Party, Data Deputy
-• Reported on over 5 million contact attempts from a backend database in legible and concise reports.
-• Rapidly developed reports for analytics purposes.
-• Helped shape the development of various voter models, including support, turnout, persuasion and
-volunteer likelihood.
-• Created flexible mapping tools for geographic resource allotment.
-• Provided technical assistance on our internal data tools, such as our mapping systems and voterfile.
-Iowa Democratic Party, Data and Technology Director February 2013-May 2014
-• Led a data-driven state party program by improving technology literacy and information access for activists across the state through trainings both in-person and online.
-• Managed and mediated statewide Votebuilder (a voterfile management system) access for thousands of users and hundreds of separate committees.
-• Updated and created multiple websites.
-• Worked with the creation and use of voter models.
-• Created goals and expected turnout models for multiple elections.
-• Developed custom-made web tools for fundraising events and the Iowa caucuses that were used by
-hundred of simultaneous users.
-Organizing for America (2012 Obama Reelection), Iowa Deputy Data Director May-November 2012
-• Where I developed the skills to use and taught others the use of Excel, Access, SQL, PHP and HTML.
-• Provided trainings on Votebuilder and fulfilled a support role for the program.
-• Created reporting workflows that summarized over 6 million voter contact data points over the course
-of the election.
-• Developed statewide Election Day reporting and volunteer activation tools that were used by over a
-thousand employees and statewide activists.
-Iowa Democratic Party, IT Assistant May-November 2010
-• Participated in multiple fundraisers, speeches and high-level meetings providing technical support.
-• Provided general troubleshooting advice.
-• Consolidated soft reporting from our field team into manageable reports.
+   <script>
+
+      
+
+      var base_tile = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          minZoom: 1,
+          attribution: 'Map data (c) <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+      });
+
+      var baseLayer = {
+        "Base Layer": base_tile
+      };
+
+      /*
+      addition of the wms layers
+      */
+
+      
+
+      /*
+      addition of the tile layers
+      */
+      
+
+      /*
+      list of layers to be added
+      */
+      var layer_list = {
+      
+      };
+
+      /*
+      Bounding box.
+      */
+      var southWest = L.latLng(-90, -180),
+          northEast = L.latLng(90, 180),
+          bounds = L.latLngBounds(southWest, northEast);
+
+      /*
+      Creates the map and adds the selected layers
+      */
+      var map = L.map('folium_cc0d57bfa9154ee7ba71e78915828a1e', {
+                                       center:[45.5236, -122.675],
+                                       zoom: 10,
+                                       maxBounds: bounds,
+                                       layers: [base_tile]
+                                     });
+
+      L.control.layers(baseLayer, layer_list).addTo(map);
+
+      //cluster group
+      var clusteredmarkers = L.markerClusterGroup();
+      //section for adding clustered markers
+      
+      //add the clustered markers to the group anyway
+      map.addLayer(clusteredmarkers);
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+   </script>
+
 </body>
-</html>
