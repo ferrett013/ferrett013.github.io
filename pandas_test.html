@@ -47,7 +47,7 @@
           .defer(d3.json, 'data/world.geojson')
           .await(makeMap)
 
-      function makeMap(error, data_2,gjson_2) {
+      function makeMap(error, data_1,gjson_1) {
 
           
 
@@ -68,7 +68,7 @@
               .range(['#FFFFCC', '#D9F0A3', '#ADDD8E', '#78C679', '#41AB5D', '#238443']);
           
 
-          var map = L.map('map').setView([48, -102], 3);
+          var map = L.map('map').setView([48, -102], 1);
 
           L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               maxZoom: 18,
@@ -87,9 +87,9 @@
           
 
           
-          function style_2(feature) {
+          function style_1(feature) {
     return {
-        fillColor: color(matchKey(feature.id, data_2)),
+        fillColor: color(matchKey(['feature.name', 'Country'], data_1)),
         weight: 1,
         opacity: 0.2,
         color: 'black',
@@ -99,7 +99,7 @@
           
 
           
-          gJson_layer_2 = L.geoJson(gjson_2, {style: style_2}).addTo(map)
+          gJson_layer_1 = L.geoJson(gjson_1, {style: style_1}).addTo(map)
           
 
           
