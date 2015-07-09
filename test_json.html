@@ -43,7 +43,7 @@
    <script>
 
       queue()
-          .defer(d3.json, '/data/world.geojson')
+          .defer(d3.json, 'data/world.geojson')
           .await(makeMap)
 
       function makeMap(error, gjson_1) {
