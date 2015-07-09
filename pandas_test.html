@@ -89,7 +89,7 @@
           
           function style_1(feature) {
     return {
-        fillColor: color(matchKey(['feature.name', 'feature.Country'], data_1)),
+        fillColor: color(matchKey(feature.name, data_1)),
         weight: 1,
         opacity: 0.2,
         color: 'black',
