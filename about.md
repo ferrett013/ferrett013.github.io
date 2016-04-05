@@ -4,12 +4,21 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I make progressive campaigns more efficient and productive.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I grew up in the Kansas City area (on the KS side). Went to school at Drake University in Des Moines. I live in Denver, CO now, which is pretty cool. I manage voter data pipelines, map data on electorates and build universes for productive contact. I do the :+1:! techs:
+
+* Office Suite
+* Google Suite and Apps Script
+* PostgreSQL/PostGIS
+* Python
+* PHP/Javascript for webapps
+	* Leaflet.js
+	* D3
+* VAN
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+DM me on Twitter
